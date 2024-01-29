@@ -3,31 +3,37 @@
 
 int main(void)
 {
-  int height;
+    int height;
 
-  do
-  {
-    height = get_int("Height: ");
-  }
-  while (height < 1 || height > 8);
-
-  for (int row = 1; row <= height; row++)
-  {
-    for (int space = height; space >= row - 1; space--)
+    do
     {
-      printf(" ");
+        height = get_int("Height: ");
     }
-    for (int hash = 1; hash <= row; hash++)
-    {
-      printf("#");
-    }
-    printf("  ");
+    while (height < 1 || height > 8);
 
-    for (int secHash = 1; secHash <= row; secHash++)
+    for (int row = 1; row <= height; row++)
     {
-      printf("#");
-    }
+        // Print spaces
+        for (int space = height - row; space > 0; space--)
+        {
+            printf(" ");
+        }
 
-    printf("\n");
-  }
+        // Print left hashes
+        for (int hash = 1; hash <= row; hash++)
+        {
+            printf("#");
+        }
+
+        // Print gap between the two pyramid halves
+        printf("  ");
+
+        // Print right hashes
+        for (int secHash = 1; secHash <= row; secHash++)
+        {
+            printf("#");
+        }
+
+        printf("\n");
+    }
 }
